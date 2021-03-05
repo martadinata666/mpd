@@ -1,6 +1,6 @@
 FROM registry.gitlab.com/dedyms/sid-slim:latest
 WORKDIR /mpd
-RUN apt install mpd mpc
+RUN apt update && apt install mpd mpc
 COPY mpd.conf /mpd/mpd.conf
 RUN chown -R $CONTAINERUSER:$CONTAINERUSER /mpd/
 
