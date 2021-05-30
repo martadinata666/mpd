@@ -1,12 +1,10 @@
-FROM alpine:edge
+FROM registry.gitlab.com/dedyms/alpine:edge
 WORKDIR /mpd
 RUN apk add --no-cache mpd mpc && setcap -r /usr/bin/mpd
 COPY mpd.conf /mpd/mpd.conf
-RUN adduser --disabled-password --uid 1000 abc
-RUN chown -R abc:abc /mpd/
+RUN chown -R $CONTAINERUSER:$CONTAINERUSER /mpd/
 
-
-USER abc
+USER $CONTAINERUSER
 EXPOSE 6600
 EXPOSE 8800
 CMD ["mpd", "--stdout", "--no-daemon", "/mpd/mpd.conf"]
