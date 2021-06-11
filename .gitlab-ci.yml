@@ -4,7 +4,7 @@ variables:
   DOCKERHOST: tcp://docker:2375
   DOCKER_DRIVER: overlay2
 
-docker-build-buildx:
+buildx-master:
   # Official docker image.
   image: registry.gitlab.com/dedyms/docker-with-buildx:0.5.1
   stage: build
