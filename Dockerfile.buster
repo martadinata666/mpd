@@ -1,4 +1,4 @@
-FROM registry.gitlab.com/dedyms/buster-slim:sid
+FROM registry.gitlab.com/dedyms/buster-slim:latest
 RUN apk add --no-cache mpd mpc 
 #&& setcap -r /usr/bin/mpd #only in alpine
 COPY --chown=$CONTAINERUSER:$CONTAINERUSER mpd.conf /home/$CONTAINERUSER/mpd/mpd.conf
