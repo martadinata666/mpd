@@ -27,7 +27,7 @@ buildx-master:
       - Dockerfile
       - .gitlab-ci.yml
 
-buildx-master:
+buildx-sid:
   # Official docker image.
   image: registry.gitlab.com/dedyms/docker-with-buildx:0.5.1
   stage: build
