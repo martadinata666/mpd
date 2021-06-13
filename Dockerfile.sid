@@ -4,7 +4,6 @@ RUN apt update && apt install -y --no-install-recommends mpd mpc && apt clean &&
 COPY --chown=$CONTAINERUSER:$CONTAINERUSER mpd.conf /home/$CONTAINERUSER/mpd/mpd.conf
 
 USER $CONTAINERUSER
-RUN mkdir /home/$CONTAINERUSER/mpd
 WORKDIR /home/$CONTAINERUSER/mpd
 VOLUME /home/$CONTAINERUSER/mpd
 EXPOSE 6600
