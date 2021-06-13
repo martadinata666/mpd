@@ -1,5 +1,5 @@
 FROM registry.gitlab.com/dedyms/sid-slim:latest
-RUN apk add --no-cache mpd mpc 
+RUN apt update && apt install -y --no-install-recommends mpd mpc && apt clean && rm -rf /var/lib/apt/lists/* 
 #&& setcap -r /usr/bin/mpd #only in alpine
 COPY --chown=$CONTAINERUSER:$CONTAINERUSER mpd.conf /home/$CONTAINERUSER/mpd/mpd.conf
 
