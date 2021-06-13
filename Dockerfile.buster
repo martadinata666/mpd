@@ -1,0 +1,12 @@
+FROM registry.gitlab.com/dedyms/buster-slim:sid
+RUN apk add --no-cache mpd mpc 
+#&& setcap -r /usr/bin/mpd #only in alpine
+COPY --chown=$CONTAINERUSER:$CONTAINERUSER mpd.conf /home/$CONTAINERUSER/mpd/mpd.conf
+
+USER $CONTAINERUSER
+RUN mkdir /home/$CONTAINERUSER/mpd
+WORKDIR /home/$CONTAINERUSER/mpd
+VOLUME /home/$CONTAINERUSER/mpd
+EXPOSE 6600
+EXPOSE 8800
+CMD ["mpd", "--stdout", "--no-daemon", "./mpd.conf"]
