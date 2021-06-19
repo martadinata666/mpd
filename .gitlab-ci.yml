@@ -25,3 +25,4 @@ buildx-sid:
       - schedules
     changes:
       - Dockerfile.sid
+      - mpd.conf
