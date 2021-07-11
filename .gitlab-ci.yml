@@ -5,6 +5,7 @@ variables:
   DOCKER_DRIVER: overlay2
 
 buildx-sid:
+  cache: {}
   # Official docker image.
   image: registry.gitlab.com/dedyms/docker-with-buildx:0.5.1
   stage: build
